@@ -75,6 +75,21 @@ def get_darkest_area(image):
 
     return darkest_point
 
+# New function to detect glint (brightest spot)
+def get_brightest_area(image, ignoreBounds=20, blockSize=20, skip=5):
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    max_sum = -1
+    brightest_point = (0, 0)
+    
+    for y in range(ignoreBounds, gray.shape[0] - ignoreBounds, skip):
+        for x in range(ignoreBounds, gray.shape[1] - ignoreBounds, skip):
+            block = gray[y:y+blockSize, x:x+blockSize]
+            block_sum = np.sum(block)
+            if block_sum > max_sum:
+                max_sum = block_sum
+                brightest_point = (x + blockSize//2, y + blockSize//2)
+    return brightest_point
+
 #mask all pixels outside a square defined by center and size
 def mask_outside_square(image, center, size):
     x, y = center
@@ -381,6 +396,8 @@ def process_frame(frame):
 
     #find the darkest point
     darkest_point = get_darkest_area(frame)
+    # Also find the brightest point for glint
+    brightest_point = get_brightest_area(frame)
 
     # Convert to grayscale to handle pixel value operations
     gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -399,8 +416,17 @@ def process_frame(frame):
     
     #take the three images thresholded at different levels and process them
     final_rotated_rect = process_frames(thresholded_image_strict, thresholded_image_medium, thresholded_image_relaxed, frame, gray_frame, darkest_point, False, False)
+
+    # Optional: draw both points on the frame
+    result_frame = frame.copy()
+    pupil_center = tuple(map(int, final_rotated_rect[0]))  # (x, y)
+    cv2.circle(result_frame, pupil_center, 3, (255, 0, 0), -1)          # Blue dot: pupil
+    cv2.circle(result_frame, brightest_point, 3, (0, 255, 255), -1)     # Yellow dot: glint
+    print("Pupil center:", pupil_center)
+    print("Glint center:", brightest_point)
+    print("Image shape:", result_frame.shape)
     
-    return final_rotated_rect
+    return final_rotated_rect, brightest_point, result_frame
 
 # Loads a video and finds the pupil in each frame
 def process_video(video_path, input_method):
@@ -429,6 +455,19 @@ def process_video(video_path, input_method):
         ret, frame = cap.read()
         if not ret:
             break
+
+        # 用 process_frame() 处理当前帧
+        pupil_ellipse, glint_point, result_frame = process_frame(frame)
+
+        # 可选：打印坐标调试
+        print("Pupil center:", pupil_ellipse[0])
+        print("Glint center:", glint_point)
+
+        # 显示带标注的图像
+        cv2.imshow('Pupil and Glint Tracking', result_frame)
+        
+        # 写入视频
+        out.write(result_frame)
 
         # Crop and resize frame
         frame = crop_to_aspect_ratio(frame)
@@ -486,7 +525,11 @@ def process_video(video_path, input_method):
 def select_video():
     root = tk.Tk()
     root.withdraw()  # Hide the main window
-    video_path = 'C:/Google Drive/Eye Tracking/fulleyetest.mp4'
+    # video_path = 'C:/Storage/Google Drive/Eye Tracking/fulleyetest3.mp4'
+    # 获取当前.py文件所在的目录
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    video_path = os.path.join(script_dir, "eye_test.mp4")
+    
     if not os.path.exists(video_path):
         print("No file found at hardcoded path. Please select a video file.")
         video_path = filedialog.askopenfilename(title="Select Video File", filetypes=[("Video Files", "*.mp4;*.avi")])

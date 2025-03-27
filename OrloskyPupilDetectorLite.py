@@ -155,7 +155,12 @@ def process_video(video_path, input_method):
 def select_video():
     root = tk.Tk()
     root.withdraw()
-    video_path = 'C:/Storage/Google Drive/Eye Tracking/fulleyetest3.mp4'
+    # video_path = 'C:/Storage/Google Drive/Eye Tracking/fulleyetest3.mp4'
+
+    # 获取当前.py文件所在的目录
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    video_path = os.path.join(script_dir, "eye_test.mp4")
+
     if not os.path.exists(video_path):
         video_path = filedialog.askopenfilename(filetypes=[("Video Files", "*.mp4;*.avi")])
     if video_path:
@@ -163,3 +168,4 @@ def select_video():
 
 if __name__ == "__main__":
     select_video()
+    print("Script started")  # 放在文件末尾，确保能看到输出
