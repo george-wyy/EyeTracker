@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./2_pupilDetector/ ",
+        "./2_pupilDetector/ "
+    ]
+}
