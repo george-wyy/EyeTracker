@@ -320,7 +320,8 @@ def process_frame(frame):
     cv2.circle(result_frame, glint1, 3, (0, 0, 255), -1)     # red dot: glint
     cv2.circle(result_frame, glint2, 3, (0, 0, 255), -1)     # red dot: glint
     print("Pupil center:", pupil_center)
-    print("Glint center:", glint2)
+    print("Glint1 center:", glint1)
+    print("Glint2 center:", glint2)
     print("Image shape:", result_frame.shape)
     
-    return final_rotated_rect, glint2, result_frame
+    return final_rotated_rect, glint1, glint2, result_frame

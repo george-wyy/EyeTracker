@@ -3,6 +3,7 @@ def enhance_contrast(gray):
     clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
     enhanced = clahe.apply(gray)
     return enhanced
+
 import os
 import json
 import cv2

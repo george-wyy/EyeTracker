@@ -40,11 +40,11 @@ def process_video(video_path, input_method):
             break
 
         # 用 process_frame() 处理当前帧
-        pupil_ellipse, glint_point, result_frame = process_frame(frame)
+        pupil_ellipse, glint_point1, glint_point2, result_frame = process_frame(frame)
 
         # 可选：打印坐标调试
         print("Pupil center:", pupil_ellipse[0])
-        print("Glint center:", glint_point)
+        # print("Glint center:", glint_point)
 
         # 显示带标注的图像
         cv2.imshow('Pupil and Glint Tracking', result_frame)

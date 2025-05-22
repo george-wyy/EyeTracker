@@ -1,0 +1,162 @@
+[
+  {
+    "point_index": 0,
+    "gaze_xy": [
+      360,
+      233
+    ],
+    "start_timestamp": "2025-05-21 16:55:39",
+    "end_timestamp": "2025-05-21 16:55:42",
+    "duration_sec": 2.909676
+  },
+  {
+    "point_index": 1,
+    "gaze_xy": [
+      720,
+      233
+    ],
+    "start_timestamp": "2025-05-21 16:55:42",
+    "end_timestamp": "2025-05-21 16:55:45",
+    "duration_sec": 3.000072
+  },
+  {
+    "point_index": 2,
+    "gaze_xy": [
+      1080,
+      233
+    ],
+    "start_timestamp": "2025-05-21 16:55:45",
+    "end_timestamp": "2025-05-21 16:55:48",
+    "duration_sec": 3.018772
+  },
+  {
+    "point_index": 3,
+    "gaze_xy": [
+      1440,
+      233
+    ],
+    "start_timestamp": "2025-05-21 16:55:48",
+    "end_timestamp": "2025-05-21 16:55:51",
+    "duration_sec": 3.001641
+  },
+  {
+    "point_index": 4,
+    "gaze_xy": [
+      360,
+      467
+    ],
+    "start_timestamp": "2025-05-21 16:55:51",
+    "end_timestamp": "2025-05-21 16:55:54",
+    "duration_sec": 2.986381
+  },
+  {
+    "point_index": 5,
+    "gaze_xy": [
+      720,
+      467
+    ],
+    "start_timestamp": "2025-05-21 16:55:54",
+    "end_timestamp": "2025-05-21 16:55:57",
+    "duration_sec": 2.992849
+  },
+  {
+    "point_index": 6,
+    "gaze_xy": [
+      1080,
+      467
+    ],
+    "start_timestamp": "2025-05-21 16:55:57",
+    "end_timestamp": "2025-05-21 16:56:00",
+    "duration_sec": 2.999895
+  },
+  {
+    "point_index": 7,
+    "gaze_xy": [
+      1440,
+      467
+    ],
+    "start_timestamp": "2025-05-21 16:56:00",
+    "end_timestamp": "2025-05-21 16:56:03",
+    "duration_sec": 3.027264
+  },
+  {
+    "point_index": 8,
+    "gaze_xy": [
+      360,
+      701
+    ],
+    "start_timestamp": "2025-05-21 16:56:03",
+    "end_timestamp": "2025-05-21 16:56:06",
+    "duration_sec": 2.9996
+  },
+  {
+    "point_index": 9,
+    "gaze_xy": [
+      720,
+      701
+    ],
+    "start_timestamp": "2025-05-21 16:56:06",
+    "end_timestamp": "2025-05-21 16:56:09",
+    "duration_sec": 2.986903
+  },
+  {
+    "point_index": 10,
+    "gaze_xy": [
+      1080,
+      701
+    ],
+    "start_timestamp": "2025-05-21 16:56:09",
+    "end_timestamp": "2025-05-21 16:56:12",
+    "duration_sec": 2.995398
+  },
+  {
+    "point_index": 11,
+    "gaze_xy": [
+      1440,
+      701
+    ],
+    "start_timestamp": "2025-05-21 16:56:12",
+    "end_timestamp": "2025-05-21 16:56:15",
+    "duration_sec": 2.990009
+  },
+  {
+    "point_index": 12,
+    "gaze_xy": [
+      360,
+      935
+    ],
+    "start_timestamp": "2025-05-21 16:56:15",
+    "end_timestamp": "2025-05-21 16:56:18",
+    "duration_sec": 3.035022
+  },
+  {
+    "point_index": 13,
+    "gaze_xy": [
+      720,
+      935
+    ],
+    "start_timestamp": "2025-05-21 16:56:18",
+    "end_timestamp": "2025-05-21 16:56:21",
+    "duration_sec": 2.966656
+  },
+  {
+    "point_index": 14,
+    "gaze_xy": [
+      1080,
+      935
+    ],
+    "start_timestamp": "2025-05-21 16:56:21",
+    "end_timestamp": "2025-05-21 16:56:24",
+    "duration_sec": 3.017728
+  },
+  {
+    "point_index": 15,
+    "gaze_xy": [
+      1440,
+      935
+    ],
+    "start_timestamp": "2025-05-21 16:56:24",
+    "end_timestamp": "2025-05-21 16:56:27",
+    "duration_sec": 2.994073
+  }
+]
